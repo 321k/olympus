@@ -14,7 +14,7 @@ if(isset($_POST['btn-login']))
  $row=mysql_fetch_array($res);
  if($row['password']==md5($upass))
  {
-  $_SESSION['user'] = $row['user_id'];
+  $_SESSION['user'] = $row['id'];
   header("Location: home.php");
  }
  else
