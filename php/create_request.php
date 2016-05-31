@@ -10,12 +10,10 @@ $res=mysql_query("SELECT * FROM users LEFT JOIN privileges on privileges.user_id
 $row=mysql_fetch_array($res);
 $userid = $row['user_id'];
 $res=mysql_query("INSERT INTO requests (user_id) values ('$userid')");
-$res=mysql_query("INSERT INTO request_contents (requets_id, content, status) values (LAST_INSERT_ID(), $content1), 'added_by_user");
+$res=mysql_query("INSERT INTO request_contents (requets_id, content, status) values (LAST_INSERT_ID(), $content1), 'added_by_user'");
 $last_request_id=mysql_fetch_array($res);
 ?>
-        <script>alert('<?php echo $last_request_id; ?>');</script>
-        <?php
-?>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
