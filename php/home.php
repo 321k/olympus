@@ -18,8 +18,8 @@ if(isset($_POST['btn-request']))
 	$content3 = mysql_real_escape_string($_POST['content1']);
  	$content = array($content1, $content2, $content3);
  
- foreach ($content as $x){
- 	mysql_query("INSERT INTO requests (user_id) values ('$userid')");
+ mysql_query("INSERT INTO requests (user_id) values ('$userid')");
+ foreach ($content as $x){	
  	mysql_query("INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), '$x', 'added_by_user')");
  }
 }
