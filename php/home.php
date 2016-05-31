@@ -16,7 +16,7 @@ if(isset($_POST['btn-request']))
  $content3 = mysql_real_escape_string($_POST['content3']);
  $userid = $userRow['id'];
  mysql_query("INSERT INTO requests (user_id) values ('$userid')");
- mysql_query("INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), $content1, 'added_by_user')");
+ mysql_query("INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), '$content1', 'added_by_user')");
 
  header("Location: create_request.php");
 }
