@@ -27,7 +27,7 @@ $userRow=mysql_fetch_array($res);
          hi' <?php echo $userRow['username']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a>  
      </div>
      <div>
-     	Your status is: <?php echo $userRow['privileges']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a>
+     	Your status is: <?php echo $userRow['privilege']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a>
      </div>
     </div>
 </div>
