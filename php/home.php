@@ -17,8 +17,6 @@ if(isset($_POST['btn-request']))
  $userid = $userRow['id'];
  mysql_query("INSERT INTO requests (user_id) values ('$userid')");
  mysql_query("INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), '$content1', 'added_by_user')");
-
- header("Location: create_request.php");
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
