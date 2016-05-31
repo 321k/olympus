@@ -9,7 +9,7 @@ if(!isset($_SESSION['user']))
 $res=mysql_query("SELECT users.username, users.email, privileges.privilege, users.id FROM users LEFT JOIN privileges on privileges.user_id = users.id WHERE users.id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
 
-$userid = $userRow['user_id'];
+$userid = $userRow['id'];
 
 if(isset($_POST['btn-request']))
 {
