@@ -21,7 +21,7 @@ $userRow=mysql_fetch_array($res);
 <body>
 <div id="header">
  <div id="left">
-    <label>cleartuts</label>
+    <label>Google Trends Watch</label>
     </div>
     <div id="right">
      <div id="content">
