@@ -13,7 +13,10 @@ $userid = $userRow['id'];
 
 if(isset($_POST['btn-request']))
 {
- $content = array(mysql_real_escape_string($_POST['content1']), mysql_real_escape_string($_POST['content2']), mysql_real_escape_string($_POST['content3']));
+	$content1 = mysql_real_escape_string($_POST['content1']);
+	$content2 = mysql_real_escape_string($_POST['content1']);
+	$content3 = mysql_real_escape_string($_POST['content1']);
+ 	$content = array($content1, $content2, $content3);
  
  foreach ($x as $content){
  	mysql_query("INSERT INTO requests (user_id) values ('$userid')");
