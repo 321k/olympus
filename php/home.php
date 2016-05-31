@@ -13,12 +13,12 @@ $userid = $userRow['id'];
 
 if(isset($_POST['btn-request']))
 {
- $content1 = mysql_real_escape_string($_POST['content1']);
- $content2 = mysql_real_escape_string($_POST['content2']);
- $content3 = mysql_real_escape_string($_POST['content3']);
+ $content = array(mysql_real_escape_string($_POST['content1']), mysql_real_escape_string($_POST['content2']), mysql_real_escape_string($_POST['content3']));
  
- mysql_query("INSERT INTO requests (user_id) values ('$userid')");
- mysql_query("INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), '$content1', 'added_by_user')");
+ foreach ($x as $content){
+ 	mysql_query("INSERT INTO requests (user_id) values ('$userid')");
+ 	mysql_query("INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), '$x', 'added_by_user')");
+ }
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
