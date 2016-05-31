@@ -6,7 +6,7 @@ if(!isset($_SESSION['user']))
 {
  header("Location: index.php");
 }
-$res=mysql_query("SELECT * FROM users LEFT JOIN privileges on privileges.user_id = user.id WHERE users.id=".$_SESSION['user']);
+$res=mysql_query("SELECT * FROM users LEFT JOIN privileges on privileges.user_id = users.id WHERE users.id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
