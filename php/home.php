@@ -6,9 +6,9 @@ if(!isset($_SESSION['user']))
 {
  header("Location: index.php");
 }
-$res=mysql_query("SELECT * FROM users LEFT JOIN privileges on privileges.user_id = users.id WHERE users.id=".$_SESSION['user']);
+$res=mysql_query("SELECT users.id as user_id, * FROM users LEFT JOIN privileges on privileges.user_id = users.id WHERE users.id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
-$userid = $userRow['id'];
+$userid = $userRow['user_id'];
 
 if(isset($_POST['btn-request']))
 {
