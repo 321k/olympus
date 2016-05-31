@@ -14,7 +14,7 @@ if(isset($_POST['btn-request']))
  $content1 = mysql_real_escape_string($_POST['content1']);
  $content2 = mysql_real_escape_string($_POST['content2']);
  $content3 = mysql_real_escape_string($_POST['content3']);
- $userid = $userRow['id']
+ $userid = $userRow['id'];
  mysql_query("INSERT INTO requests (user_id) values ('$userid')");
  mysql_query("INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), $content1, 'added_by_user')");
 
