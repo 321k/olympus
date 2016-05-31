@@ -5,6 +5,9 @@ if(!isset($_SESSION['user']))
 {
  header("Location: index.php");
 }
+
+$userid = $row['id']
+$res=mysql_query("INSERT INTO requests (user_id) values ('$userid')");
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
