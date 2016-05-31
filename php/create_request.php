@@ -10,7 +10,7 @@ $res=mysql_query("SELECT * FROM users LEFT JOIN privileges on privileges.user_id
 $row=mysql_fetch_array($res);
 $userid = $row['user_id'];
 $res=mysql_query("INSERT INTO requests (user_id) values ('$userid')");
-$res=mysql_query("INSERT INTO request_contents (requets_id, content, status) values (LAST_INSERT_ID(), $content1), 'added_by_user'");
+$res=mysql_query("INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), $content1, 'added_by_user')");
 $last_request_id=mysql_fetch_array($res);
 ?>
 
@@ -58,3 +58,6 @@ $last_request_id=mysql_fetch_array($res);
 </div>
 </body>
 </html>
+
+
+INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), 'asdf', 'added_by_user')
