@@ -8,6 +8,7 @@ if(!isset($_SESSION['user']))
 }
 $res=mysql_query("SELECT * FROM users LEFT JOIN privileges on privileges.user_id = users.id WHERE users.id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
+?> <script> alert(<?php echo $userRow['user_id']; ?>) <?php
 $userid = $userRow['user_id'];
 
 if(isset($_POST['btn-request']))
