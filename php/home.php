@@ -8,13 +8,14 @@ if(!isset($_SESSION['user']))
 }
 $res=mysql_query("SELECT * FROM users LEFT JOIN privileges on privileges.user_id = users.id WHERE users.id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
+$userid = $userRow['id'];
 
 if(isset($_POST['btn-request']))
 {
  $content1 = mysql_real_escape_string($_POST['content1']);
  $content2 = mysql_real_escape_string($_POST['content2']);
  $content3 = mysql_real_escape_string($_POST['content3']);
- $userid = $userRow['id'];
+ 
  mysql_query("INSERT INTO requests (user_id) values ('$userid')");
  mysql_query("INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), '$content1', 'added_by_user')");
 }
