@@ -19,7 +19,7 @@ if(isset($_POST['btn-request']))
  	$content = array($content1, $content2, $content3);
  	
  	mysql_query("INSERT INTO requests (user_id) values ('$userid')");
- 	$request_id = mysql_query("SELECT max(id) AS request_id FROM requests WHERE request.user_id=".$_SESSION['user']);
+ 	$request_id = mysql_query("SELECT max(id) AS request_id FROM requests WHERE requests.user_id=".$_SESSION['user']);
  	$request_id = mysql_fetch_array($request_id);
  	$request_id = $request_id['request_id'];
  foreach ($content as $x){	
