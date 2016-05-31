@@ -8,6 +8,22 @@ if(!isset($_SESSION['user']))
 }
 $res=mysql_query("SELECT * FROM users LEFT JOIN privileges on privileges.user_id = users.id WHERE users.id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
+
+if(isset($_POST['btn-request']))
+{
+ $content1 = mysql_real_escape_string($_POST['content1']);
+ $content2 = mysql_real_escape_string($_POST['content2']);
+ $content3 = mysql_real_escape_string($_POST['content3']);
+ header("Location: create_request.php");
+ else
+ {
+  ?>
+        <script>alert('Something went wrong');</script>
+        <?php
+ }
+ 
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,10 +40,29 @@ $userRow=mysql_fetch_array($res);
     </div>
     <div id="right">
      <div id="content">
-         hi' <?php echo $userRow['username']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a>  
+         User name: <?php echo $userRow['username']; ?>
+         Email: <?php echo $userRow['email']; ?>
+         Your status is: <?php echo $userRow['privilege']; ?>
+         <a href="logout.php?logout">Sign Out</a>
      </div>
-     <div>
-     	Your status is: <?php echo $userRow['privilege']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a>
+     <div id="create_request">
+     	<h1>Create request</h1>
+     	<form method="post">
+			<table align="center" width="30%" border="0">
+			<tr>
+			<td><input type="text" name="content1" placeholder="Content 1" required /></td>
+			</tr>
+			<tr>
+			<td><input type="text" name="content2" placeholder="Content 2"/></td>
+			</tr>
+			<tr>
+			<td><input type="text" name="content3" placeholder="Content 3"/></td>
+			</tr>
+			<tr>
+			<td><button type="submit" name="btn-request">Get data</button></td>
+			</tr>
+			</table>
+		</form>
      </div>
     </div>
 </div>
