@@ -8,7 +8,7 @@ if(!isset($_SESSION['user']))
 }
 $res=mysql_query("SELECT * FROM users LEFT JOIN privileges on privileges.user_id = users.id WHERE users.id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
-?> <script> alert(<?php echo $userRow['user_id']; ?>) <?php
+
 $userid = $userRow['user_id'];
 
 if(isset($_POST['btn-request']))
@@ -39,6 +39,8 @@ if(isset($_POST['btn-request']))
          User name: <?php echo $userRow['username']; ?>
          Email: <?php echo $userRow['email']; ?>
          Your status is: <?php echo $userRow['privilege']; ?>
+         Your id: <?php echo $userRow['user_id']; ?>
+
          <a href="logout.php?logout">Sign Out</a>
      </div>
      <div id="create_request">
