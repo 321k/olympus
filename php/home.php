@@ -12,6 +12,8 @@ $userRow=mysql_fetch_array($res);
 if(isset($_POST['btn-request']))
 {
  $content1 = mysql_real_escape_string($_POST['content1']);
+ $content2 = mysql_real_escape_string($_POST['content2']);
+ $content3 = mysql_real_escape_string($_POST['content3']);
  header("Location: create_request.php");
 }
 ?>
@@ -43,10 +45,10 @@ if(isset($_POST['btn-request']))
 			<td><input type="text" name="content1" placeholder="Content 1" required /></td>
 			</tr>
 			<tr>
-			<td><input type="text" name="content2" placeholder="Content 2"/></td>
+			<td><input type="text" name="content2" placeholder="Content 2" required/></td>
 			</tr>
 			<tr>
-			<td><input type="text" name="content3" placeholder="Content 3"/></td>
+			<td><input type="text" name="content3" placeholder="Content 3" required/></td>
 			</tr>
 			<tr>
 			<td><button type="submit" name="btn-request">Get data</button></td>
