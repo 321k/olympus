@@ -5,7 +5,6 @@ if(!isset($_SESSION['user']))
 {
  header("Location: index.php");
 }
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -29,7 +28,7 @@ if(!isset($_SESSION['user']))
          <a href="logout.php?logout">Sign Out</a>
      </div>
      <div id="create_request">
-     	<h1>Create request</h1>
+     	<h1>Copngrats, you created a request</h1>
      	<form method="post">
 			<table align="center" width="30%" border="0">
 			<tr>
