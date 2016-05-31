@@ -17,10 +17,11 @@ if(isset($_POST['btn-request']))
 	$content2 = mysql_real_escape_string($_POST['content1']);
 	$content3 = mysql_real_escape_string($_POST['content1']);
  	$content = array($content1, $content2, $content3);
- 
+ 	$request_id = mysql_query("select LAST_INSERT_ID()");
+ 	$request_id = mysql_fetch_array($request_id);
  mysql_query("INSERT INTO requests (user_id) values ('$userid')");
  foreach ($content as $x){	
- 	mysql_query("INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), '$x', 'added_by_user')");
+ 	mysql_query("INSERT INTO request_contents (request_id, content, status) values ('$request_id', '$x', 'added_by_user')");
  }
 }
 ?>
