@@ -18,6 +18,7 @@ $userRow=mysql_fetch_array($res);
 <link rel="stylesheet" href="../css/normalize.css" type="text/css" />
 </head>
 <body>
+	asdfasdfasdfasdf
 <div id="header">
  <div id="left">
     <label>cleartuts</label>
