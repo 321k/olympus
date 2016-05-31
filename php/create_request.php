@@ -6,7 +6,9 @@ if(!isset($_SESSION['user']))
  header("Location: index.php");
 }
 
-$userid = $row['id']
+$res=mysql_query("SELECT * FROM users LEFT JOIN privileges on privileges.user_id = users.id WHERE users.id=".$_SESSION['user']);
+$row=mysql_fetch_array($res);
+$userid = $row['user_id'];
 $res=mysql_query("INSERT INTO requests (user_id) values ('$userid')");
 ?>
 
