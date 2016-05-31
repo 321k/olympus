@@ -58,6 +58,3 @@ $last_request_id=mysql_fetch_array($res);
 </div>
 </body>
 </html>
-
-
-INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), 'asdf', 'added_by_user')
