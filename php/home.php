@@ -46,6 +46,7 @@ if(isset($_POST['btn-request']))
          Email: <?php echo $userRow['email']; ?>
          Your status is: <?php echo $userRow['privilege']; ?>
          Your id: <?php echo $userRow['id']; ?>
+         Your id: <?php echo $request_id; ?>
 
          <a href="logout.php?logout">Sign Out</a>
      </div>
