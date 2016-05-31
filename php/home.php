@@ -9,6 +9,11 @@ if(!isset($_SESSION['user']))
 $res=mysql_query("SELECT * FROM users LEFT JOIN privileges on privileges.user_id = users.id WHERE users.id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
 
+if(isset($_POST['btn-request']))
+{
+ $content1 = mysql_real_escape_string($_POST['content1']);
+ header("Location: create_request.php");
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
