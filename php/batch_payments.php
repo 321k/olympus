@@ -26,12 +26,12 @@ if(isset($_POST['btn-request']))
  	$content = array($X_Authorization_key, $X_Authorization_token, $Postman_Token, $amount, 
  		$amountCurrency, $profile, $recipientId, $sourceCurrency, $targetCurrency);
  	
- 	mysql_query("INSERT INTO requests (user_id) values ('$userid')");
- 	$request_id = mysql_query("SELECT max(id) AS request_id FROM requests WHERE requests.user_id=".$_SESSION['user']);
- 	$request_id = mysql_fetch_array($request_id);
- 	$request_id = $request_id['request_id'];
+ 	mysql_query("INSERT INTO batches (user_id) values ('$userid')");
+ 	$batch_id = mysql_query("SELECT max(id) AS batch_id FROM batches WHERE batches.user_id=".$_SESSION['user']);
+ 	$batch_id = mysql_fetch_array($batch_id);
+ 	$batch_id = $batch_id['batch_id'];
  foreach ($content as $x){	
- 	mysql_query("INSERT INTO request_contents (request_id, content, status) values ('$request_id', '$x', 'added_by_user')");
+ 	mysql_query("INSERT INTO batch_contents (batch_id, content, status) values ('$batch_id', '$x', 'added_by_user')");
  }
 }
 ?>
