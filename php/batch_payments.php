@@ -54,38 +54,36 @@ if(isset($_POST['btn-request']))
 // 	if($res){
 // 		shell_exec ( string $cmd )
 // 	}
+$curl = curl_init();
 
-	$client = new http\Client;
-				$request = new http\Client\Request;
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://transferwise.com/api/v1/payment/create",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"amount\"\r\n\r\n12567\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"amountCurrency\"\r\n\r\nsource\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"exchangeId\"\r\n\r\nfa447bea-4016-4261-af94-f7bfd8c9810a\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"isFixedRate\"\r\n\r\ntrue\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"profile\"\r\n\r\nbusiness\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"recipientId\"\r\n\r\n773709\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"refundRecipientId\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceCurrency\"\r\n\r\nGBP\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceOfFundsOptionId\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceOfFundsText\"\r\n\r\nasdf\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"targetCurrency\"\r\n\r\nEUR\r\n-----011000010111000001101001--",
+  CURLOPT_HTTPHEADER => array(
+    "cache-control: no-cache",
+    "content-type: multipart/form-data; boundary=---011000010111000001101001",
+    "postman-token: afe27f99-dcbd-f47d-9409-1c77999b417a",
+    "x-authorization-key: dad99d7d8e52c2c8aaf9fda788d8acdc",
+    "x-authorization-token: m5njb81us73uv3usi16boal3k57j7ukdfaq5ilppv784gr2n3msk"
+  ),
+));
 
-				$body = new http\Message\Body;
-				$body->addForm(array(
-				  'amount' => $amount
-				  'amountCurrency' => $amountCurrency,
-				  'exchangeId' => 'fa447bea-4016-4261-af94-f7bfd8c9810a',
-				  'isFixedRate' => 'true',
-				  'profile' => 'business',
-				  'recipientId' => $recipientId,
-				  'sourceCurrency' => $sourceCurrency,
-				  'sourceOfFundsText' => 'asdf',
-				  'targetCurrency' => $targetCurrency
-				), NULL);
+$response = curl_exec($curl);
+$err = curl_error($curl);
 
-				$request->setRequestUrl('https://transferwise.com/api/v1/payment/create');
-				$request->setRequestMethod('POST');
-				$request->setBody($body);
+curl_close($curl);
 
-				$request->setHeaders(array(
-				  'postman-token' => '28932827-97a9-42a2-68b6-d0024055442f',
-				  'cache-control' => 'no-cache',
-				  'x-authorization-token' => $X_Authorization_token,
-				  'x-authorization-key' => $X_Authorization_key
-				));
-
-				$client->enqueue($request)->send();
-				$response = $client->getResponse();
-
-				echo $response->getBody();
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
 // foreach ($content as $x){	
 // 	mysql_query("INSERT INTO batch_contents (batch_id, content, status) values ('$batch_id', '$x', 'added_by_user')");
 // 	}
