@@ -36,23 +36,10 @@ if(isset($_POST['btn-login']))
 </head>
 <body>
 <center>
-<div id="login-form">
-	<form method="post">
-	<table align="center" width="30%" border="0">
-	<tr>
-	<td><input type="text" name="email" placeholder="Your Email" required /></td>
-	</tr>
-	<tr>
-	<td><input type="password" name="pass" placeholder="Your Password" required /></td>
-	</tr>
-	<tr>
-	<td><button type="submit" name="btn-login">Sign In</button></td>
-	</tr>
-	<tr>
-	<td><a href="register.php">Sign Up Here</a></td>
-	</tr>
-	</table>
-	</form>
+<div id="menu">
+	<a href="/olympus/php/google_trends.php">Google Trends</a>
+	<a href="/olympus/php/batch_payments.php">Batch payments</a>
+	
 </div>
 </center>
 </body>

@@ -9,6 +9,23 @@ if(!isset($_SESSION['user']))
 $res=mysql_query("SELECT users.username, users.email, privileges.privilege, users.id FROM users LEFT JOIN privileges on privileges.user_id = users.id WHERE users.id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
 
+$userid = $userRow['id'];
+
+if(isset($_POST['btn-request']))
+{
+	$content1 = mysql_real_escape_string($_POST['content1']);
+	$content2 = mysql_real_escape_string($_POST['content2']);
+	$content3 = mysql_real_escape_string($_POST['content3']);
+ 	$content = array($content1, $content2, $content3);
+ 	
+ 	mysql_query("INSERT INTO requests (user_id) values ('$userid')");
+ 	$request_id = mysql_query("SELECT max(id) AS request_id FROM requests WHERE requests.user_id=".$_SESSION['user']);
+ 	$request_id = mysql_fetch_array($request_id);
+ 	$request_id = $request_id['request_id'];
+ foreach ($content as $x){	
+ 	mysql_query("INSERT INTO request_contents (request_id, content, status) values ('$request_id', '$x', 'added_by_user')");
+ }
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

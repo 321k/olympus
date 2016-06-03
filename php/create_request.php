@@ -11,7 +11,6 @@ $row=mysql_fetch_array($res);
 $userid = $row['user_id'];
 $res=mysql_query("INSERT INTO requests (user_id) values ('$userid')");
 $res=mysql_query("INSERT INTO request_contents (request_id, content, status) values (LAST_INSERT_ID(), $content1, 'added_by_user')");
-$last_request_id=mysql_fetch_array($res);
 ?>
 
 
@@ -36,7 +35,7 @@ $last_request_id=mysql_fetch_array($res);
          <a href="logout.php?logout">Sign Out</a>
      </div>
      <div id="create_request">
-     	<h1>Copngrats, you created a request</h1>
+     	<h1>Congrats, you created a request</h1>
      	<form method="post">
 			<table align="center" width="30%" border="0">
 			<tr>
