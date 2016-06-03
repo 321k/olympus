@@ -56,9 +56,6 @@ if(isset($_POST['btn-request']))
 // 	}
 
 
-
-			<?php
-
 $request = new HttpRequest();
 $request->setUrl('https://transferwise.com/api/v1/payment/create');
 $request->setMethod(HTTP_METH_POST);
