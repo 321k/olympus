@@ -98,7 +98,8 @@ if ($err) {
 <title>Welcome - <?php echo $userRow['email']; ?></title>
 <link rel="stylesheet" href="../css/main.css" type="text/css" />
 <link rel="stylesheet" href="../css/normalize.css" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
 </head>
 <body>
 <div id="header">
@@ -152,6 +153,18 @@ if ($err) {
 			</table>
 		</form>
      </div>
+
+     <div id="mocha"></div>
+
+	<script>
+		if (window.mochaPhantomJS) {
+			mochaPhantomJS.run();
+		} else {
+			mocha.checkLeaks();
+			mocha.globals(['jQuery']);
+			mocha.run();
+		}
+	</script>
     </div>
 </div>
 </body>
