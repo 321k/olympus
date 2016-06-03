@@ -24,7 +24,7 @@ if(isset($_POST['btn-request']))
 	$targetCurrency = mysql_real_escape_string($_POST['targetCurrency']);
 
  	$content = array($X_Authorization_key, $X_Authorization_token, $Postman_Token, $amount, 
- 		$amountCurrency, $profile, $recipientId, $sourceCurrency, $targetCurrency);
+ 			$amountCurrency, $profile, $recipientId, $sourceCurrency, $targetCurrency);
  	
 // 	mysql_query("INSERT INTO batches (user_id) values ('$userid')");
 // 	$batch_id = mysql_query("SELECT max(id) AS batch_id FROM batches WHERE batches.user_id=".$_SESSION['user']);
@@ -57,37 +57,73 @@ if(isset($_POST['btn-request']))
 
 
 
-				$client = new http\Client;
-				$request = new http\Client\Request;
+			<?php
 
-				$body = new http\Message\Body;
-				$body->addForm(array(
-				  'amount' => $amount
-				  'amountCurrency' => $amountCurrency,
-				  'exchangeId' => 'fa447bea-4016-4261-af94-f7bfd8c9810a',
-				  'isFixedRate' => 'true',
-				  'profile' => 'business',
-				  'recipientId' => $recipientId,
-				  'sourceCurrency' => $sourceCurrency,
-				  'sourceOfFundsText' => 'asdf',
-				  'targetCurrency' => $targetCurrency
-				), NULL);
+$request = new HttpRequest();
+$request->setUrl('https://transferwise.com/api/v1/payment/create');
+$request->setMethod(HTTP_METH_POST);
 
-				$request->setRequestUrl('https://transferwise.com/api/v1/payment/create');
-				$request->setRequestMethod('POST');
-				$request->setBody($body);
+$request->setHeaders(array(
+  'postman-token' => 'acf103d2-4d86-9758-4253-3a916b60d52c',
+  'cache-control' => 'no-cache',
+  'x-authorization-token' => 'm5njb81us73uv3usi16boal3k57j7ukdfaq5ilppv784gr2n3msk',
+  'x-authorization-key' => 'dad99d7d8e52c2c8aaf9fda788d8acdc',
+  'content-type' => 'multipart/form-data; boundary=---011000010111000001101001'
+));
 
-				$request->setHeaders(array(
-				  'postman-token' => '28932827-97a9-42a2-68b6-d0024055442f',
-				  'cache-control' => 'no-cache',
-				  'x-authorization-token' => $X_Authorization_token,
-				  'x-authorization-key' => $X_Authorization_key
-				));
+$request->setBody('-----011000010111000001101001
+Content-Disposition: form-data; name="amount"
 
-				$client->enqueue($request)->send();
-				$response = $client->getResponse();
+12567
+-----011000010111000001101001
+Content-Disposition: form-data; name="amountCurrency"
 
-				echo $response->getBody();
+source
+-----011000010111000001101001
+Content-Disposition: form-data; name="exchangeId"
+
+fa447bea-4016-4261-af94-f7bfd8c9810a
+-----011000010111000001101001
+Content-Disposition: form-data; name="isFixedRate"
+
+true
+-----011000010111000001101001
+Content-Disposition: form-data; name="profile"
+
+business
+-----011000010111000001101001
+Content-Disposition: form-data; name="recipientId"
+
+773709
+-----011000010111000001101001
+Content-Disposition: form-data; name="refundRecipientId"
+
+
+-----011000010111000001101001
+Content-Disposition: form-data; name="sourceCurrency"
+
+GBP
+-----011000010111000001101001
+Content-Disposition: form-data; name="sourceOfFundsOptionId"
+
+
+-----011000010111000001101001
+Content-Disposition: form-data; name="sourceOfFundsText"
+
+asdf
+-----011000010111000001101001
+Content-Disposition: form-data; name="targetCurrency"
+
+EUR
+-----011000010111000001101001--');
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
 # foreach ($content as $x){	
 # 	mysql_query("INSERT INTO batch_contents (batch_id, content, status) values ('$batch_id', '$x', 'added_by_user')");
 # 	}
