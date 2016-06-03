@@ -85,7 +85,7 @@ if(isset($_POST['btn-request']))
 				$client->enqueue($request)->send();
 				$response = $client->getResponse();
 
-				echo $response->getBody();x
+				echo $response->getBody();
 // foreach ($content as $x){	
 // 	mysql_query("INSERT INTO batch_contents (batch_id, content, status) values ('$batch_id', '$x', 'added_by_user')");
 // 	}
