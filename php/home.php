@@ -35,26 +35,9 @@ $userRow=mysql_fetch_array($res);
      </div>
      <div id="create_request">
      	<h1>Create request</h1>
-     	<form method="post">
-
-     			<a href="/olympus/php/google_trends.php">Google Trends</a>
-				<a href="/olympus/php/batch_payments.php">Batch payments</a>
-	
-			<table align="center" width="30%" border="0">
-			<tr>
-			<td><input type="text" name="content1" placeholder="Content 1" required /></td>
-			</tr>
-			<tr>
-			<td><input type="text" name="content2" placeholder="Content 2" required/></td>
-			</tr>
-			<tr>
-			<td><input type="text" name="content3" placeholder="Content 3" required/></td>
-			</tr>
-			<tr>
-			<td><button type="submit" name="btn-request">Get data</button></td>
-			</tr>
-			</table>
-		</form>
+     	
+     		<a href="/olympus/php/google_trends.php">Google Trends</a>
+			<a href="/olympus/php/batch_payments.php">Batch payments</a>
      </div>
     </div>
 </div>
