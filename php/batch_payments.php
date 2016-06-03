@@ -26,30 +26,68 @@ if(isset($_POST['btn-request']))
  	$content = array($X_Authorization_key, $X_Authorization_token, $Postman_Token, $amount, 
  		$amountCurrency, $profile, $recipientId, $sourceCurrency, $targetCurrency);
  	
- 	mysql_query("INSERT INTO batches (user_id) values ('$userid')");
- 	$batch_id = mysql_query("SELECT max(id) AS batch_id FROM batches WHERE batches.user_id=".$_SESSION['user']);
- 	$batch_id = mysql_fetch_array($batch_id);
- 	$batch_id = $batch_id['batch_id'];
- 	mysql_query("INSERT INTO batch_contents (batch_id, 
- 							X_Authorization_key	,
-							X_Authorization_token,
-							Postman_Token,
-							amount,
-							amountCurrency,
-							profile,
-							recipientId,
-							sourceCurrency,
-							targetCurrency) 
- 				values ('$batch_id', 
- 					'$X_Authorization_key',
-					'$X_Authorization_token',
-					'$Postman_Token',
-					'$amount',
-					'$amountCurrency',
-					'$profile',
-					'$recipientId',
-					'$sourceCurrency',
-					'$targetCurrency')");
+// 	mysql_query("INSERT INTO batches (user_id) values ('$userid')");
+// 	$batch_id = mysql_query("SELECT max(id) AS batch_id FROM batches WHERE batches.user_id=".$_SESSION['user']);
+// 	$batch_id = mysql_fetch_array($batch_id);
+// 	$batch_id = $batch_id['batch_id'];
+// 	$res = mysql_query("INSERT INTO batch_contents (batch_id, 
+// 							X_Authorization_key	,
+//							X_Authorization_token,
+//							Postman_Token,
+//							amount,
+//							amountCurrency,
+//							profile,
+//							recipientId,
+//							sourceCurrency,
+//							targetCurrency) 
+// 				values ('$batch_id', 
+// 					'$X_Authorization_key',
+//					'$X_Authorization_token',
+//					'$Postman_Token',
+//					'$amount',
+//					'$amountCurrency',
+//					'$profile',
+//					'$recipientId',
+//					'$sourceCurrency',
+//					'$targetCurrency')");
+//
+// 	if($res){
+// 		shell_exec ( string $cmd )
+// 	}
+
+
+
+				$client = new http\Client;
+				$request = new http\Client\Request;
+
+				$body = new http\Message\Body;
+				$body->addForm(array(
+				  'amount' => $amount
+				  'amountCurrency' => $amountCurrency,
+				  'exchangeId' => 'fa447bea-4016-4261-af94-f7bfd8c9810a',
+				  'isFixedRate' => 'true',
+				  'profile' => 'business',
+				  'recipientId' => $recipientId,
+				  'sourceCurrency' => $sourceCurrency,
+				  'sourceOfFundsText' => 'asdf',
+				  'targetCurrency' => $targetCurrency
+				), NULL);
+
+				$request->setRequestUrl('https://transferwise.com/api/v1/payment/create');
+				$request->setRequestMethod('POST');
+				$request->setBody($body);
+
+				$request->setHeaders(array(
+				  'postman-token' => '28932827-97a9-42a2-68b6-d0024055442f',
+				  'cache-control' => 'no-cache',
+				  'x-authorization-token' => $X_Authorization_token,
+				  'x-authorization-key' => $X_Authorization_key
+				));
+
+				$client->enqueue($request)->send();
+				$response = $client->getResponse();
+
+				echo $response->getBody();
 # foreach ($content as $x){	
 # 	mysql_query("INSERT INTO batch_contents (batch_id, content, status) values ('$batch_id', '$x', 'added_by_user')");
 # 	}
