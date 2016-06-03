@@ -36,6 +36,10 @@ $userRow=mysql_fetch_array($res);
      <div id="create_request">
      	<h1>Create request</h1>
      	<form method="post">
+
+     			<a href="/olympus/php/google_trends.php">Google Trends</a>
+				<a href="/olympus/php/batch_payments.php">Batch payments</a>
+	
 			<table align="center" width="30%" border="0">
 			<tr>
 			<td><input type="text" name="content1" placeholder="Content 1" required /></td>
