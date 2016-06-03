@@ -56,7 +56,7 @@ if(isset($_POST['btn-request']))
 // 	}
 
 $curl = curl_init();
-$CURLOPT_POSTFIELDS = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"amount\"\r\n\r\n" . $amount . " \r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"amountCurrency\"\r\n\r\nsource\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"exchangeId\"\r\n\r\nfa447bea-4016-4261-af94-f7bfd8c9810a\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"isFixedRate\"\r\n\r\ntrue\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"profile\"\r\n\r\nbusiness\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"recipientId\"\r\n\r\n1064369\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"refundRecipientId\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceCurrency\"\r\n\r\nEUR\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceOfFundsOptionId\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceOfFundsText\"\r\n\r\nasdf\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"targetCurrency\"\r\n\r\nGBP\r\n-----011000010111000001101001--";
+$CURLOPT_POSTFIELDS = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"amount\"\r\n\r\n" . $amount . " \r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"amountCurrency\"\r\n\r\n" . $amountCurrency . "\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"exchangeId\"\r\n\r\nfa447bea-4016-4261-af94-f7bfd8c9810a\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"isFixedRate\"\r\n\r\ntrue\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"profile\"\r\n\r\nbusiness\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"recipientId\"\r\n\r\n" . $recipientId . "\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"refundRecipientId\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceCurrency\"\r\n\r\n" . $sourceCurrency . "\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceOfFundsOptionId\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceOfFundsText\"\r\n\r\nasdf\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"targetCurrency\"\r\n\r\n" . $targetCurrency ."\r\n-----011000010111000001101001--";
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://transferwise.com/api/v1/payment/create",
@@ -71,8 +71,8 @@ curl_setopt_array($curl, array(
     "cache-control: no-cache",
     "content-type: multipart/form-data; boundary=---011000010111000001101001",
     "postman-token: ebf1b139-4003-436d-867c-fd38a247573e",
-    "x-authorization-key: dad99d7d8e52c2c8aaf9fda788d8acdc",
-    "x-authorization-token: vp27iapgob6l5uf1tl9l8q45pci0lc88ismrr18m9mr39libff8j"
+    "x-authorization-key: " . $X_Authorization_key,
+    "x-authorization-token: " . $X_Authorization_token
   ),
 ));
 
