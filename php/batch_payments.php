@@ -55,75 +55,40 @@ if(isset($_POST['btn-request']))
 // 		shell_exec ( string $cmd )
 // 	}
 
+	$client = new http\Client;
+				$request = new http\Client\Request;
 
-$request = new HttpRequest();
-$request->setUrl('https://transferwise.com/api/v1/payment/create');
-$request->setMethod(HTTP_METH_POST);
+				$body = new http\Message\Body;
+				$body->addForm(array(
+				  'amount' => $amount
+				  'amountCurrency' => $amountCurrency,
+				  'exchangeId' => 'fa447bea-4016-4261-af94-f7bfd8c9810a',
+				  'isFixedRate' => 'true',
+				  'profile' => 'business',
+				  'recipientId' => $recipientId,
+				  'sourceCurrency' => $sourceCurrency,
+				  'sourceOfFundsText' => 'asdf',
+				  'targetCurrency' => $targetCurrency
+				), NULL);
 
-$request->setHeaders(array(
-  'postman-token' => 'acf103d2-4d86-9758-4253-3a916b60d52c',
-  'cache-control' => 'no-cache',
-  'x-authorization-token' => 'm5njb81us73uv3usi16boal3k57j7ukdfaq5ilppv784gr2n3msk',
-  'x-authorization-key' => 'dad99d7d8e52c2c8aaf9fda788d8acdc',
-  'content-type' => 'multipart/form-data; boundary=---011000010111000001101001'
-));
+				$request->setRequestUrl('https://transferwise.com/api/v1/payment/create');
+				$request->setRequestMethod('POST');
+				$request->setBody($body);
 
-$request->setBody('-----011000010111000001101001
-Content-Disposition: form-data; name="amount"
+				$request->setHeaders(array(
+				  'postman-token' => '28932827-97a9-42a2-68b6-d0024055442f',
+				  'cache-control' => 'no-cache',
+				  'x-authorization-token' => $X_Authorization_token,
+				  'x-authorization-key' => $X_Authorization_key
+				));
 
-12567
------011000010111000001101001
-Content-Disposition: form-data; name="amountCurrency"
+				$client->enqueue($request)->send();
+				$response = $client->getResponse();
 
-source
------011000010111000001101001
-Content-Disposition: form-data; name="exchangeId"
-
-fa447bea-4016-4261-af94-f7bfd8c9810a
------011000010111000001101001
-Content-Disposition: form-data; name="isFixedRate"
-
-true
------011000010111000001101001
-Content-Disposition: form-data; name="profile"
-
-business
------011000010111000001101001
-Content-Disposition: form-data; name="recipientId"
-
-773709
------011000010111000001101001
-Content-Disposition: form-data; name="refundRecipientId"
-
-
------011000010111000001101001
-Content-Disposition: form-data; name="sourceCurrency"
-
-GBP
------011000010111000001101001
-Content-Disposition: form-data; name="sourceOfFundsOptionId"
-
-
------011000010111000001101001
-Content-Disposition: form-data; name="sourceOfFundsText"
-
-asdf
------011000010111000001101001
-Content-Disposition: form-data; name="targetCurrency"
-
-EUR
------011000010111000001101001--');
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
-}
-# foreach ($content as $x){	
-# 	mysql_query("INSERT INTO batch_contents (batch_id, content, status) values ('$batch_id', '$x', 'added_by_user')");
-# 	}
+				echo $response->getBody();x
+// foreach ($content as $x){	
+// 	mysql_query("INSERT INTO batch_contents (batch_id, content, status) values ('$batch_id', '$x', 'added_by_user')");
+// 	}
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
