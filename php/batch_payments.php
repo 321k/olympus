@@ -30,9 +30,29 @@ if(isset($_POST['btn-request']))
  	$batch_id = mysql_query("SELECT max(id) AS batch_id FROM batches WHERE batches.user_id=".$_SESSION['user']);
  	$batch_id = mysql_fetch_array($batch_id);
  	$batch_id = $batch_id['batch_id'];
- foreach ($content as $x){	
- 	mysql_query("INSERT INTO batch_contents (batch_id, content, status) values ('$batch_id', '$x', 'added_by_user')");
- }
+ 	mysql_query("INSERT INTO batch_contents (batch_id, 
+ 							X_Authorization_key	,
+							X_Authorization_token,
+							Postman_Token,
+							amount,
+							amountCurrency,
+							profile,
+							recipientId,
+							sourceCurrency,
+							targetCurrency) 
+ 				values ('$batch_id', 
+ 					'$X_Authorization_key',
+					'$X_Authorization_token',
+					'$Postman_Token',
+					'$amount',
+					'$amountCurrency',
+					'$profile',
+					'$recipientId',
+					'$sourceCurrency',
+					'$targetCurrency')");
+# foreach ($content as $x){	
+# 	mysql_query("INSERT INTO batch_contents (batch_id, content, status) values ('$batch_id', '$x', 'added_by_user')");
+# 	}
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
