@@ -116,6 +116,28 @@ if ($err) {
 
          <a href="logout.php?logout">Sign Out</a>
      </div>
+     <div id="file_parser">
+        <script>
+          var data;
+         
+          function handleFileSelect(evt) {
+            var file = evt.target.files[0];
+         
+            Papa.parse(file, {
+              header: true,
+              dynamicTyping: true,
+              complete: function(results) {
+                data = results;
+              }
+            });
+          }
+         
+          $(document).ready(function(){
+            $("#csv-file").change(handleFileSelect);
+          });
+        </script>
+        <input type="file" id="csv-file" name="files"/>
+    </div>
      <div id="create_request">
      	<h1>Create request</h1>
      	<form method="post">
@@ -154,7 +176,7 @@ if ($err) {
 		</form>
      </div>
 
-     <div id="mocha"></div>
+     <input type="file" id="csv-file" name="files"/>
 
 	<script>
 		if (window.mochaPhantomJS) {

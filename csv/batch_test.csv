@@ -1,0 +1,5 @@
+X_Authorization_key,X_Authorization_token,Postman_Token,amount,amountCurrency,profile,recipientId,sourceCurrency,targetCurrency
+X,Y,Z,1000,source,personal,123456,GBP,EUR
+X,Y,Z,1000,source,personal,123456,GBP,EUR
+X,Y,Z,1000,source,personal,123456,GBP,EUR
+X,Y,Z,1000,source,personal,123456,GBP,EUR
