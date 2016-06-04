@@ -175,18 +175,6 @@ if ($err) {
 			</table>
 		</form>
      </div>
-
-     <input type="file" id="csv-file" name="files"/>
-
-	<script>
-		if (window.mochaPhantomJS) {
-			mochaPhantomJS.run();
-		} else {
-			mocha.checkLeaks();
-			mocha.globals(['jQuery']);
-			mocha.run();
-		}
-	</script>
     </div>
 </div>
 </body>
