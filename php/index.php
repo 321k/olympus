@@ -1,4 +1,7 @@
 <?php
+
+
+
 session_start();
 include_once 'dbconnect.php';
 
@@ -23,7 +26,6 @@ if(isset($_POST['btn-login']))
         <script>alert('wrong details');</script>
         <?php
  }
- 
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -33,7 +35,7 @@ if(isset($_POST['btn-login']))
 		<title>cleartuts - Login & Registration System</title>
 		<link rel="stylesheet" href="../css/main.css" type="text/css" />
 		<link rel="stylesheet" href="../css/normalize.css" type="text/css" />
-		
+
 	</head>
 	<body>
 		<center>

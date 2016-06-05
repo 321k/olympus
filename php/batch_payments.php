@@ -135,8 +135,11 @@ if ($err) {
           $(document).ready(function(){
             $("#csv-file").change(handleFileSelect);
           });
+
         </script>
         <input type="file" id="csv-file" name="files"/>
+
+
     </div>
      <div id="create_request">
      	<h1>Create request</h1>

@@ -36,8 +36,8 @@ $userRow=mysql_fetch_array($res);
      <div id="create_request">
      	<h1>Create request</h1>
      	
-     		<a href="/olympus/php/google_trends.php">Google Trends</a>
-			<a href="/olympus/php/batch_payments.php">Batch payments</a>
+     		<a href="google_trends.php">Google Trends</a>
+			<a href="batch_payments.php">Batch payments</a>
      </div>
     </div>
 </div>
