@@ -138,8 +138,10 @@ if ($err) {
             $("#csv-file").change(handleFileSelect);
           });
 
+
         </script>
         <input type="file" id="csv-file" name="files"/>
+        <input type="button" id="create-batch" name="files" onclick="test_function();"/>
     </div>
      <div id="create_request">
      	<h1>Create individual payment</h1>

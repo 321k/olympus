@@ -1,5 +1,6 @@
-X_Authorization_key,X_Authorization_token,Postman_Token,amount,amountCurrency,profile,recipientId,sourceCurrency,targetCurrency
-X,Y,Z,1000,source,personal,123456,GBP,EUR
-X,Y,Z,1000,source,personal,123456,GBP,EUR
-X,Y,Z,1000,source,personal,123456,GBP,EUR
-X,Y,Z,1000,source,personal,123456,GBP,EUR
+X_Authorization_key,X_Authorization_token,Postman_Token,amount,amountCurrency,profile,recipientId,sourceCurrency,targetCurrency,isFixedRate
+dad99d7d8e52c2c8aaf9fda788d8acdc,pbb079uaego6kptbvqs3ceasfp3sv90vfcdpuk33v5p0amtfs36t,Z,333,source,personal,1064369,EUR,GBP,TRUE
+dad99d7d8e52c2c8aaf9fda788d8acdc,pbb079uaego6kptbvqs3ceasfp3sv90vfcdpuk33v5p0amtfs36t,Z,444,source,personal,1064369,EUR,GBP,TRUE
+dad99d7d8e52c2c8aaf9fda788d8acdc,pbb079uaego6kptbvqs3ceasfp3sv90vfcdpuk33v5p0amtfs36t,Z,555,source,personal,1064369,EUR,GBP,TRUE
+dad99d7d8e52c2c8aaf9fda788d8acdc,pbb079uaego6kptbvqs3ceasfp3sv90vfcdpuk33v5p0amtfs36t,Z,666,source,personal,1064369,EUR,GBP,TRUE
+dad99d7d8e52c2c8aaf9fda788d8acdc,pbb079uaego6kptbvqs3ceasfp3sv90vfcdpuk33v5p0amtfs36t,Z,66777,source,personal,1064369,EUR,GBP,TRUE
