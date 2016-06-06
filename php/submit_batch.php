@@ -1,17 +1,46 @@
 <?php
 
-$X_Authorization_key = mysql_real_escape_string($_POST['X_Authorization_key']);
-$X_Authorization_token = mysql_real_escape_string($_POST['X_Authorization_token']);
-$Postman_Token = mysql_real_escape_string($_POST['Postman_Token']);
-$amount = mysql_real_escape_string($_POST['amount']);
-$amountCurrency = mysql_real_escape_string($_POST['amountCurrency']);
-$profile = mysql_real_escape_string($_POST['profile']);
-$recipientId = mysql_real_escape_string($_POST['recipientId']);
-$sourceCurrency = mysql_real_escape_string($_POST['sourceCurrency']);
-$targetCurrency = mysql_real_escape_string($_POST['targetCurrency']);
+	$X_Authorization_key = mysql_real_escape_string($_POST['X_Authorization_key']);
+	$X_Authorization_token = mysql_real_escape_string($_POST['X_Authorization_token']);
+	$Postman_Token = mysql_real_escape_string($_POST['Postman_Token']);
+	$amount = mysql_real_escape_string($_POST['amount']);
+	$amountCurrency = mysql_real_escape_string($_POST['amountCurrency']);
+	$profile = mysql_real_escape_string($_POST['profile']);
+	$recipientId = mysql_real_escape_string($_POST['recipientId']);
+	$sourceCurrency = mysql_real_escape_string($_POST['sourceCurrency']);
+	$targetCurrency = mysql_real_escape_string($_POST['targetCurrency']);
 
-$content = array($X_Authorization_key, $X_Authorization_token, $Postman_Token, $amount, 
+ 	$content = array($X_Authorization_key, $X_Authorization_token, $Postman_Token, $amount, 
  			$amountCurrency, $profile, $recipientId, $sourceCurrency, $targetCurrency);
+ 	
+// 	mysql_query("INSERT INTO batches (user_id) values ('$userid')");
+// 	$batch_id = mysql_query("SELECT max(id) AS batch_id FROM batches WHERE batches.user_id=".$_SESSION['user']);
+// 	$batch_id = mysql_fetch_array($batch_id);
+// 	$batch_id = $batch_id['batch_id'];
+// 	$res = mysql_query("INSERT INTO batch_contents (batch_id, 
+// 							X_Authorization_key	,
+//							X_Authorization_token,
+//							Postman_Token,
+//							amount,
+//							amountCurrency,
+//							profile,
+//							recipientId,
+//							sourceCurrency,
+//							targetCurrency) 
+// 				values ('$batch_id', 
+// 					'$X_Authorization_key',
+//					'$X_Authorization_token',
+//					'$Postman_Token',
+//					'$amount',
+//					'$amountCurrency',
+//					'$profile',
+//					'$recipientId',
+//					'$sourceCurrency',
+//					'$targetCurrency')");
+//
+// 	if($res){
+// 		shell_exec ( string $cmd )
+// 	}
 
 $curl = curl_init();
 $CURLOPT_POSTFIELDS = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"amount\"\r\n\r\n" . $amount . " \r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"amountCurrency\"\r\n\r\n" . $amountCurrency . "\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"exchangeId\"\r\n\r\nfa447bea-4016-4261-af94-f7bfd8c9810a\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"isFixedRate\"\r\n\r\ntrue\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"profile\"\r\n\r\n" . $profile .  "\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"recipientId\"\r\n\r\n" . $recipientId . "\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"refundRecipientId\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceCurrency\"\r\n\r\n" . $sourceCurrency . "\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceOfFundsOptionId\"\r\n\r\n\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"sourceOfFundsText\"\r\n\r\nasdf\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"targetCurrency\"\r\n\r\n" . $targetCurrency ."\r\n-----011000010111000001101001--";
