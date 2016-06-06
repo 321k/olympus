@@ -20,6 +20,10 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
+$reponseInfo = curl_getinfo($req);
+$httpResponseCode = $responseInfo['token'];
+echo $responseInfo;
+
 $err = curl_error($curl);
 
 curl_close($curl);
@@ -61,7 +65,7 @@ curl_setopt_array($curl, array(
     "content-type: multipart/form-data; boundary=---011000010111000001101001",
     "postman-token: ebf1b139-4003-436d-867c-fd38a247573e",
     "x-authorization-key: " . $X_Authorization_key,
-    "x-authorization-token: " . $X_Authorization_token
+    "x-authorization-token: " . $httpResponseCode
   ),
 ));
 
@@ -69,7 +73,7 @@ $response = curl_exec($curl);
 $err = curl_error($curl);
 
 curl_close($curl);
-
+echo "<br><br>";
 if ($err) {
   echo "cURL Error #:" . $err;
 } else {
