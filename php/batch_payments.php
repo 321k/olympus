@@ -100,23 +100,25 @@ if ($err) {
 <link rel="stylesheet" href="../css/normalize.css" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+<script src="../js/script.js"></script>
 </head>
 <body>
 <div id="header">
  <div id="left">
-    <label>Google Trends Watch</label>
+    <label>TransferWise payment generator</label>
     </div>
     <div id="right">
      <div id="content">
-         User name: <?php echo $userRow['username']; ?>
-         Email: <?php echo $userRow['email']; ?>
-         Your status is: <?php echo $userRow['privilege']; ?>
-         Your id: <?php echo $userRow['id']; ?>
-         Your id: <?php echo $request_id; ?>
+         User name: <?php echo $userRow['username']; ?><br>
+         Email: <?php echo $userRow['email']; ?><br>
+         Your status is: <?php echo $userRow['privilege']; ?><br>
+         Your id: <?php echo $userRow['id']; ?><br>
 
          <a href="logout.php?logout">Sign Out</a>
      </div>
-     <div id="file_parser">
+     <div id="file-parser">
+     	<div id="file-content"></div>
+     	<h1>Create payments via file upload</h1>
         <script>
           var data;
          
@@ -138,11 +140,9 @@ if ($err) {
 
         </script>
         <input type="file" id="csv-file" name="files"/>
-
-
     </div>
      <div id="create_request">
-     	<h1>Create request</h1>
+     	<h1>Create individual payment</h1>
      	<form method="post">
 			<table align="center" width="30%" border="0">
 			<tr>
