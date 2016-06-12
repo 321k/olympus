@@ -34,6 +34,9 @@ if(isset($_POST['btn-request']))
 <title>Welcome - <?php echo $userRow['email']; ?></title>
 <link rel="stylesheet" href="../css/main.css" type="text/css" />
 <link rel="stylesheet" href="../css/normalize.css" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+<script src="../js/script.js"></script>
 </head>
 <body>
 <div id="header">
@@ -50,6 +53,33 @@ if(isset($_POST['btn-request']))
 
          <a href="logout.php?logout">Sign Out</a>
      </div>
+     <div id="file-parser">
+     	<div id="file-content"></div>
+     	<h1>Create payments via file upload</h1>
+        <script>
+          var data;
+         
+          function handleFileSelect(evt) {
+            var file = evt.target.files[0];
+         
+            Papa.parse(file, {
+              header: true,
+              dynamicTyping: true,
+              complete: function(results) {
+                data = results;
+              }
+            });
+          }
+         
+          $(document).ready(function(){
+            $("#csv-file").change(handleFileSelect);
+          });
+
+
+        </script>
+        <input type="file" id="csv-file" name="files"/>
+        <input type="button" id="create-gt-batch" name="files" onclick="create_gt_batch();"/>
+    </div>
      <div id="create_request">
      	<h1>Create request</h1>
      	<form method="post">
