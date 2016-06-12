@@ -28,8 +28,10 @@ generate_payments = function(){
 
 
 test_function = function(){
+
   for(var i = 0; i<data['data'].length;i++){
-    var dataString = 'amount=' + data['data'][i]['amount'] + '&amountCurrency=' + data['data'][i]['amountCurrency'] + '&isFixedRate=' + data['data'][i]['isFixedRate'] + '&profile=' + data['data'][i]['profile'] + '&recipientId=' + data['data'][i]['recipientId'] + '&sourceCurrency=' + data['data'][i]['sourceCurrency'] + '&targetCurrency=' + data['data'][i]['targetCurrency'] + '&X_Authorization_key=' + data['data'][i]['X_Authorization_key'] + '&X_Authorization_token=' + data['data'][i]['X_Authorization_token']
+
+    var dataString = 'amount=' + data['data'][i]['amount'] + '&amountCurrency=' + data['data'][i]['amountCurrency'] + '&isFixedRate=' + data['data'][i]['isFixedRate'] + '&profile=' + data['data'][i]['profile'] + '&recipientId=' + data['data'][i]['recipientId'] + '&sourceCurrency=' + data['data'][i]['sourceCurrency'] + '&targetCurrency=' + data['data'][i]['targetCurrency'] + '&X_Authorization_key=' + data['data'][i]['X_Authorization_key'] + '&X_Authorization_token=' + data['data'][i]['X_Authorization_token'] + "&iter_no=" + i
     $.ajax({
       type: "POST",
       url: "submit_batch.php",

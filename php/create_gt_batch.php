@@ -17,10 +17,12 @@
 	$year = mysql_real_escape_string($_POST['year']);
 	$month = mysql_real_escape_string($_POST['month']);
 	$lenght = mysql_real_escape_string($_POST['lenght']);
+	$iter_no = mysql_real_escape_string($_POST['iter_no']);
 
+	if($iter_no == 0){
+		mysql_query("INSERT INTO requests (user_id) values ('$userid')");
+	}
 
-
-	mysql_query("INSERT INTO requests (user_id) values ('$userid')");
 	$request_id = mysql_query("SELECT max(id) AS request_id FROM requests WHERE requests.user_id=".$_SESSION['user']);
 	$request_id = mysql_fetch_array($request_id);
 	$request_id = $request_id['request_id'];
