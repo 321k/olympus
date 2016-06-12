@@ -19,7 +19,7 @@
 	$lenght = mysql_real_escape_string($_POST['lenght']);
 	$iter_no = mysql_real_escape_string($_POST['iter_no']);
 
-	if($iter_no == 0){
+	if($i == 0){
 		mysql_query("INSERT INTO requests (user_id) values ('$userid')");
 	}
 

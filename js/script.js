@@ -55,7 +55,8 @@ create_gt_batch = function(){
                       '&region='  + data['data'][i]['region'] +
                       '&year='  + data['data'][i]['year'] +
                       '&month='  + data['data'][i]['month'] +
-                      '&length='  + data['data'][i]['length']
+                      '&length='  + data['data'][i]['length'] +
+                      '&i=' + i
                       $.ajax({
       type: "POST",
       url: "create_gt_batch.php",
