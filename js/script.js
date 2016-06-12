@@ -45,15 +45,15 @@ test_function = function(){
 create_gt_batch = function(){
   for(var i = 0; i<data['data'].length; i++){
     var dataString = 'keyword_1=' + data['data'][i]['keyword_1'] +
-                      'keyword_2=' + data['data'][i]['keyword_2'] +
-                      'keyword_3=' + data['data'][i]['keyword_3'] +
-                      'keyword_4=' + data['data'][i]['keyword_4'] +
-                      'keyword_5=' + data['data'][i]['keyword_5'] +
-                      'country='  + data['data'][i]['country'] +
-                      'region='  + data['data'][i]['region'] +
-                      'year='  + data['data'][i]['year'] +
-                      'month='  + data['data'][i]['month'] +
-                      'length='  + data['data'][i]['length']
+                      '&keyword_2=' + data['data'][i]['keyword_2'] +
+                      '&keyword_3=' + data['data'][i]['keyword_3'] +
+                      '&keyword_4=' + data['data'][i]['keyword_4'] +
+                      '&keyword_5=' + data['data'][i]['keyword_5'] +
+                      '&country='  + data['data'][i]['country'] +
+                      '&region='  + data['data'][i]['region'] +
+                      '&year='  + data['data'][i]['year'] +
+                      '&month='  + data['data'][i]['month'] +
+                      '&length='  + data['data'][i]['length']
                       $.ajax({
       type: "POST",
       url: "create_gt_batch.php",

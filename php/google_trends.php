@@ -78,7 +78,7 @@ if(isset($_POST['btn-request']))
 
         </script>
         <input type="file" id="csv-file" name="files"/>
-        <input type="button" id="create-gt-batch" name="files" onclick="create_gt_batch();"/>
+        <input type="button" id="create-gt-batch" name="files" onclick="create_gt_batch();" value = 'submit'/>
     </div>
      <div id="create_request">
      	<h1>Create request</h1>

@@ -6,6 +6,7 @@
 	{
 	header("Location: index.php");
 	}
+	$userid = $_SESSION['user'];
 	$keyword_1 = mysql_real_escape_string($_POST['keyword_1']);
 	$keyword_2 = mysql_real_escape_string($_POST['keyword_2']);
 	$keyword_3 = mysql_real_escape_string($_POST['keyword_3']);
@@ -50,5 +51,4 @@
 		,'$lenght'
  		)
  		");
- 	}
-}
+?>
