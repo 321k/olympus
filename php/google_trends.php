@@ -40,65 +40,46 @@ if(isset($_POST['btn-request']))
 </head>
 <body>
 <div id="header">
- <div id="left">
-    <label>Google Trends Watch</label>
-    </div>
-    <div id="right">
-     <div id="content">
-         User name: <?php echo $userRow['username']; ?>
-         Email: <?php echo $userRow['email']; ?>
-         Your status is: <?php echo $userRow['privilege']; ?>
-         Your id: <?php echo $userRow['id']; ?>
-         Your id: <?php echo $request_id; ?>
+	<div id="left">
+	    <label>Google Trends Watch</label>
+	</div>
+		<div id="right">
+			<div id="content">
+		         User name: <?php echo $userRow['username']; ?>
+		         Email: <?php echo $userRow['email']; ?>
+		         Your status is: <?php echo $userRow['privilege']; ?>
+		         Your id: <?php echo $userRow['id']; ?>
+		         Your id: <?php echo $request_id; ?>
 
-         <a href="logout.php?logout">Sign Out</a>
-     </div>
-     <div id="file-parser">
-     	<div id="file-content"></div>
-     	<h1>Create payments via file upload</h1>
-        <script>
-          var data;
-         
-          function handleFileSelect(evt) {
-            var file = evt.target.files[0];
-         
-            Papa.parse(file, {
-              header: true,
-              dynamicTyping: true,
-              complete: function(results) {
-                data = results;
-              }
-            });
-          }
-         
-          $(document).ready(function(){
-            $("#csv-file").change(handleFileSelect);
-          });
+		         <a href="logout.php?logout">Sign Out</a>
+		     </div>
+		     <div id="file-parser">
+		     	<div id="file-content"></div>
+		     	<h1>Create payments via file upload</h1>
+		        <script>
+		          var data;
+		         
+		          function handleFileSelect(evt) {
+		            var file = evt.target.files[0];
+		         
+		            Papa.parse(file, {
+		              header: true,
+		              dynamicTyping: true,
+		              complete: function(results) {
+		                data = results;
+		              }
+		            });
+		          }
+		         
+		          $(document).ready(function(){
+		            $("#csv-file").change(handleFileSelect);
+		          });
 
 
-        </script>
-        <input type="file" id="csv-file" name="files"/>
-        <input type="button" id="create-gt-batch" name="files" onclick="create_gt_batch();" value = 'submit'/>
-    </div>
-     <div id="create_request">
-     	<h1>Create request</h1>
-     	<form method="post">
-			<table align="center" width="30%" border="0">
-			<tr>
-			<td><input type="text" name="content1" placeholder="Content 1" required /></td>
-			</tr>
-			<tr>
-			<td><input type="text" name="content2" placeholder="Content 2" required/></td>
-			</tr>
-			<tr>
-			<td><input type="text" name="content3" placeholder="Content 3" required/></td>
-			</tr>
-			<tr>
-			<td><button type="submit" name="btn-request">Get data</button></td>
-			</tr>
-			</table>
-		</form>
-     </div>
+		        </script>
+		        <input type="file" id="csv-file" name="files"/>
+		        <input type="button" id="create-gt-batch" name="files" onclick="create_gt_batch();" value = 'submit'/>
+	    	</div>
     </div>
 </div>
 </body>
