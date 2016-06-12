@@ -17,7 +17,7 @@
 	$year = mysql_real_escape_string($_POST['year']);
 	$month = mysql_real_escape_string($_POST['month']);
 	$lenght = mysql_real_escape_string($_POST['lenght']);
-	$iter_no = mysql_real_escape_string($_POST['iter_no']);
+	$i = mysql_real_escape_string($_POST['i']);
 
 	if($i == 0){
 		mysql_query("INSERT INTO requests (user_id) values ('$userid')");
