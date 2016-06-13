@@ -54,6 +54,6 @@
  		)
  		");
 
- 	string shell_exec ("Rscript ../r/gt_worker.R");
+ 	shell_exec("Rscript ../r/gt_worker.R");
 
 ?>
