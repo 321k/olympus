@@ -37,6 +37,7 @@ if(isset($_POST['btn-request']))
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
 <script src="../js/script.js"></script>
+<script src="../js/create_gt_url.js"></script>
 </head>
 <body>
 <div id="header">
@@ -74,11 +75,11 @@ if(isset($_POST['btn-request']))
 		          $(document).ready(function(){
 		            $("#csv-file").change(handleFileSelect);
 		          });
-
-
 		        </script>
 		        <input type="file" id="csv-file" name="files"/>
-		        <input type="button" id="create-gt-batch" name="files" onclick="create_gt_batch();" value = 'submit'/>
+		        <input type="button" id="create-gt-batch" name="files" onclick="create_links(data);" value = 'submit'/>
+	    	</div>
+	    	<div id="recent-messages">
 	    	</div>
     </div>
 </div>
