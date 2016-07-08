@@ -37,7 +37,6 @@ $userRow=mysql_fetch_array($res);
      	<h1>Create request</h1>
      	
      		<a href="google_trends.php">Google Trends</a>
-			<a href="batch_payments.php">Batch payments</a>
      </div>
     </div>
 </div>

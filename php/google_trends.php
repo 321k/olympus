@@ -55,7 +55,7 @@ if(isset($_POST['btn-request']))
 		     </div>
 		     <div id="file-parser">
 		     	<div id="file-content"></div>
-		     	<h1>Create payments via file upload</h1>
+		     	<h1>Upload file to create your Google Trends tracking</h1>
 		        <script>
 		          var data;
 		         
