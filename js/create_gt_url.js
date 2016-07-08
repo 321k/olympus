@@ -59,10 +59,11 @@ function create_links(data){
     }
     
     var url = URL_GT(keyword, country, region, year, month, length);
+    console.log(url);
     $.ajax ( {
         url: '../php/save_gt_url.php',
         type: 'POST',
-        data: "url="+url,
+        data: "url="+encodeURIComponent(url),
         success: function(data){
                 $('#ajax-return').html(data);
              }

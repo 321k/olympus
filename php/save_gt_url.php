@@ -8,7 +8,7 @@ if(!isset($_SESSION['user']))
 }
 
 $url = $_POST["url"];
-$user_id = $_SESSION['user']
+$user_id = $_SESSION['user'];
 $res=mysql_query("INSERT INTO gt_urls (user_id, url) values ($user_id, $url)");
 
 
