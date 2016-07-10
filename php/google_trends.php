@@ -78,8 +78,9 @@ if(isset($_POST['btn-request']))
 		        </script>
 		        <input type="file" id="csv-file" name="files"/>
 		        <input type="button" id="create-gt-batch" name="files" onclick="create_links(data);" value = 'submit'/>
+		        <input type="button" id="get-gt-data" name="files" value="update data"/>
 	    	</div>
-	    	<div id="recent-messages">
+	    	<div id="ajax-return">
 	    	</div>
     </div>
 </div>

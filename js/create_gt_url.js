@@ -70,3 +70,15 @@ function create_links(data){
         } );
   }
 }
+
+$(document).ready(function () {
+    $("#get-gt-data").click(function () {
+        $.ajax({
+                type: "GET",
+                url: "../php/get_gt_data.php",
+            })
+            .done(function (msg) {
+                alert(msg);
+            });
+    });
+});
