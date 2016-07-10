@@ -14,6 +14,9 @@ for(i in 1:nrow(request)){
   system("lynx -cmd_script=/var/www/html/olympus/r/lynx_commands.txt www.google.com")
   files = list.files()
   files = files[which(grepl("gt_download", files))]
+  if(length(files>1)){
+    files = files[length(files)]
+  }
   files = readGT(files)
   files$gt_urls_id = request$id[i]
   dbWriteTable(con, 'search_volume', files, append=T)
