@@ -11,28 +11,18 @@ $userRow=mysql_fetch_array($res);
 
 $userid = $userRow['id'];
 
-$svi=mysql_query("select * from gt_urls join search_volume on search_volume.gt_urls_id = gt_urls.id where gt_urls.user_id =".$_SESSION['user']);
-$svi=mysql_fetch_array($svi);
-
-echo '<table><tr><th>Title</th><th>Price</th><th>Number</th></tr>';
-foreach($svi as $id => $item) {
-    echo '<tr><td>'.$item[0].'</td><td>'.$item[1].'</td><td>'.$item[2].'</td></tr>';
-}
-echo '</table>';
-
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Welcome - <?php echo $userRow['email']; ?></title>
-<link rel="stylesheet" href="../css/main.css" type="text/css" />
-<link rel="stylesheet" href="../css/normalize.css" type="text/css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
-<script src="../js/script.js"></script>
-<script src="../js/create_gt_url.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Welcome - <?php echo $userRow['email']; ?></title>
+	<link rel="stylesheet" href="../css/main.css" type="text/css" />
+	<link rel="stylesheet" href="../css/normalize.css" type="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+	<script src="../js/script.js"></script>
+	<script src="../js/create_gt_url.js"></script>
 </head>
 <body>
 <div id="header">
@@ -45,7 +35,6 @@ echo '</table>';
 		         Email: <?php echo $userRow['email']; ?>
 		         Your status is: <?php echo $userRow['privilege']; ?>
 		         Your id: <?php echo $userRow['id']; ?>
-		         Your id: <?php echo $request_id; ?>
 
 		         <a href="logout.php?logout">Sign Out</a>
 		     </div>
@@ -76,22 +65,29 @@ echo '</table>';
 		        <input type="button" id="get-gt-data" name="files" value="update data"/>
 	    	</div>
 	    	<div id="ajax-return">
-	    		<table>
-				     <tr>
-				       <td>title</td>
-				       <td>price</td>
-				       <td>number</td>
-				     </tr>
-	    				<? foreach ($svi as $sres) : ?>
-	    			 		 <tr>
-						       <td><? echo $res['svi']; ?></td>
-						       <td><? echo $res['id']; ?></td>
-						       <td><? echo $res[2]; ?></td>
-						     </tr>
-				     <? endforeach; ?>
-				   </table>
 	    	</div>
-    </div>
-</div>
+	    	<div>
+	    		<form action="">
+		    		<h1>Define parameters</h1>
+		    		Start year<input type="" id="year" value="2004"/><br>
+		    		Start Month<input type="" id ="month" value="1"/><br>
+		    		Length<input type="" id="length" value="0"/><br>
+		    		Country <input type="" id="country" value="World"/><br>
+		    		Region <input type="" id="region" value="World"/><br>
+		    		<input type="checkbox" id="comparable_keywords"/> Make my data comparable <br>
+		    		Refresh frequency<br>
+		    		<input type="radio" id="refresh_frequency" name="refresh_frequency" value="Daily"/> Daily <br>
+		    		<input type="radio" id="refresh_frequency" name="refresh_frequency" value="Weekly"/> Weekly<br>
+		    		<input type="radio" id="refresh_frequency" name="refresh_frequency" value="Monthly"/> Monthly<br>
+		    		Data frequency<br>
+		    	
+		    		<input type="radio" id="data_frequency" name="data_frequency"  value="Daily"/> Daily <br>
+		    		<input type="radio" id="data_frequency" name="data_frequency"  value="Weekly"/> Weekly<br>
+		    		<input type="radio" id="data_frequency" name="data_frequency" value="Monthly"/> Monthly<br>
+		    		<input type="button" id="create-gt-batch-v2" id="files-v2" onclick="create_order();" value = 'submit'/>
+	    		</form>
+	    	</div>
+    	</div>
+	</div>
 </body>
 </html>

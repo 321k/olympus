@@ -78,7 +78,28 @@ $(document).ready(function () {
                 url: "../php/get_gt_data.php",
             })
             .done(function (msg) {
-                alert(msg);
+                console.log(msg);
             });
     });
 });
+
+function create_order(data){
+  var country = $('#country').val();
+  var region = $('#region').val();
+  var year = $('#year').val();
+  var month = $('#month').val();
+  var length = $('#length').val();
+  var refresh_frequency = $('#refresh_frequency').val();
+  var data_frequency = $('#data_frequency').val();
+  var comparable_keywords = $('#comparable_keywords').val();
+  var dataString = 'country='+ country + '&region='+ region + '&year='+ year + '&month='+ month + '&length='+ length + '&refresh_frequency='+ refresh_frequency + '&data_frequency='+ data_frequency + '&comparable_keywords='+ comparable_keywords;
+
+  $.ajax ( {
+      url: '../php/create_order.php',
+      type: 'POST',
+      data: dataString,
+      success: function(result){
+              console.log(result);
+           }
+      });
+}

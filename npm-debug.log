@@ -1,0 +1,52 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'jquery' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose install initial load of /Users/erik.johansson/olympus/package.json
+5 verbose readDependencies loading dependencies from /Users/erik.johansson/olympus/package.json
+6 silly cache add args [ 'jquery', null ]
+7 verbose cache add spec jquery
+8 silly cache add parsed spec { raw: 'jquery',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'jquery',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 silly addNamed jquery@*
+10 verbose addNamed "*" is a valid semver range for jquery
+11 silly addNameRange { name: 'jquery', range: '*', hasData: false }
+12 silly mapToRegistry name jquery
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/jquery
+16 verbose addNameRange registry:https://registry.npmjs.org/jquery not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/jquery
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 8:55:39 PM
+20 verbose request id f0d28fa69c731cf3
+21 http request GET https://registry.npmjs.org/jquery
+22 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org
+23 info attempt registry request try #2 at 8:56:19 PM
+24 http request GET https://registry.npmjs.org/jquery
+25 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org
+26 info attempt registry request try #3 at 8:57:23 PM
+27 http request GET https://registry.npmjs.org/jquery
+28 verbose stack Error: getaddrinfo ENOTFOUND registry.npmjs.org
+28 verbose stack     at errnoException (dns.js:44:10)
+28 verbose stack     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:94:26)
+29 verbose cwd /Users/erik.johansson/olympus
+30 error Darwin 15.5.0
+31 error argv "node" "/usr/local/bin/npm" "install" "jquery"
+32 error node v0.12.7
+33 error npm  v2.11.3
+34 error code ENOTFOUND
+35 error errno ENOTFOUND
+36 error syscall getaddrinfo
+37 error network getaddrinfo ENOTFOUND registry.npmjs.org
+37 error network This is most likely not a problem with npm itself
+37 error network and is related to network connectivity.
+37 error network In most cases you are behind a proxy or have bad network settings.
+37 error network
+37 error network If you are behind a proxy, please make sure that the
+37 error network 'proxy' config is set properly.  See: 'npm help config'
+38 verbose exit [ 1, true ]
