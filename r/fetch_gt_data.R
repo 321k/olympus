@@ -1,8 +1,9 @@
 library(RCurl)
 library(RMySQL)
 
-source("gt_scripts.R")
+
 setwd('/var/www/html/olympus/R')
+source("gt_scripts.R")
 con = dbConnect(MySQL(), user = 'erik', password = 'johansson', dbname='apollo')
 
 request <- dbGetQuery(con,"select * from gt_urls;")
