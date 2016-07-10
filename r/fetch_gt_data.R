@@ -2,7 +2,7 @@ library(RCurl)
 library(RMySQL)
 
 
-setwd('/var/www/html/olympus/R')
+setwd('/var/www/html/olympus/r')
 source("gt_scripts.R")
 con = dbConnect(MySQL(), user = 'erik', password = 'johansson', dbname='apollo')
 
