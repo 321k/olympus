@@ -12,4 +12,9 @@ for(i in 1:nrow(request)){
   lynx_commands = lynx_script(request$url[i], 'anton.mainhof@gmail.com', 'oodixach', '')
   write.table(lynx_commands, '/var/www/html/olympus/r/lynx_commands.txt', row.names=F, col.names=F, quote=F)
   system("lynx -cmd_script=/var/www/html/olympus/r/lynx_commands.txt www.google.com")
+  files = list.files()
+  files = files[which(grepl("gt_download", files))]
+  files = readGT(files)
+  files$gt_urls_id = request$id[i]
+  dbWriteTable(con, 'search_volume', append=T)
 }
