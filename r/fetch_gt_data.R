@@ -16,5 +16,5 @@ for(i in 1:nrow(request)){
   files = files[which(grepl("gt_download", files))]
   files = readGT(files)
   files$gt_urls_id = request$id[i]
-  dbWriteTable(con, 'search_volume', append=T)
+  dbWriteTable(con, 'search_volume', files, append=T)
 }
