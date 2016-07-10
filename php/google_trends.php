@@ -68,7 +68,21 @@ $row=mysql_fetch_array($res);
 		        <input type="button" id="get-gt-data" name="files" value="update data"/>
 	    	</div>
 	    	<div id="ajax-return">
-	    		<?php echo $row['SVI']; ?>
+	    		<table>
+					<thead>
+					<tr>
+					  <th><?php echo implode('</th><th>', array_keys(current($shop))); ?></th>
+					</tr>
+					</thead>
+					<tbody>
+	    				<?php foreach ($row['SVI'] as $svi) array_map('htmlentities', $svi); ?>
+	    			 <tr>
+					      <td><?php echo implode('</td><td>', $svi); ?></td>
+					    </tr>
+					<?php endforeach; ?>
+					  </tbody>
+					</table>
+
 	    	</div>
     </div>
 </div>
