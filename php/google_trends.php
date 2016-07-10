@@ -11,8 +11,8 @@ $userRow=mysql_fetch_array($res);
 
 $userid = $userRow['id'];
 
-$res=mysql_query("select * from gt_urls join search_volume on search_volume.gt_urls_id = gt_urls.id where gt_urls.user_id =".$_SESSION['user']);
-$row=mysql_fetch_array($res);
+$svi=mysql_query("select * from gt_urls join search_volume on search_volume.gt_urls_id = gt_urls.id where gt_urls.user_id =".$_SESSION['user']);
+$svi=mysql_fetch_array($svi);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -74,11 +74,11 @@ $row=mysql_fetch_array($res);
 				       <td>price</td>
 				       <td>number</td>
 				     </tr>
-	    				<? foreach ($row as $svi) : ?>
+	    				<? foreach ($svi as $sres) : ?>
 	    			 		 <tr>
-						       <td><? echo $svi[0]; ?></td>
-						       <td><? echo $svi[1]; ?></td>
-						       <td><? echo $svi[2]; ?></td>
+						       <td><? echo $res[0]; ?></td>
+						       <td><? echo $res[1]; ?></td>
+						       <td><? echo $res[2]; ?></td>
 						     </tr>
 				     <? endforeach; ?>
 				   </table>
