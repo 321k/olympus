@@ -76,8 +76,8 @@ $svi=mysql_fetch_array($svi);
 				     </tr>
 	    				<? foreach ($svi as $sres) : ?>
 	    			 		 <tr>
-						       <td><? echo $res[0]; ?></td>
-						       <td><? echo $res[1]; ?></td>
+						       <td><? echo $res['svi']; ?></td>
+						       <td><? echo $res['id']; ?></td>
 						       <td><? echo $res[2]; ?></td>
 						     </tr>
 				     <? endforeach; ?>
