@@ -13,6 +13,14 @@ $userid = $userRow['id'];
 
 $svi=mysql_query("select * from gt_urls join search_volume on search_volume.gt_urls_id = gt_urls.id where gt_urls.user_id =".$_SESSION['user']);
 $svi=mysql_fetch_array($svi);
+
+echo '<table><tr><th>Title</th><th>Price</th><th>Number</th></tr>';
+foreach($svi as $id => $item) {
+    echo '<tr><td>'.$item[0].'</td><td>'.$item[1].'</td><td>'.$item[2].'</td></tr>';
+}
+echo '</table>';
+
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
