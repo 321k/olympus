@@ -69,20 +69,19 @@ $row=mysql_fetch_array($res);
 	    	</div>
 	    	<div id="ajax-return">
 	    		<table>
-					<thead>
-					<tr>
-					  <th><?php echo implode('</th><th>', array_keys(current($shop))); ?></th>
-					</tr>
-					</thead>
-					<tbody>
-	    				<?php foreach ($row['SVI'] as $svi) array_map('htmlentities', $svi); ?>
-	    			 <tr>
-					      <td><?php echo implode('</td><td>', $svi); ?></td>
-					    </tr>
-					<?php endforeach; ?>
-					  </tbody>
-					</table>
-
+				     <tr>
+				       <td>title</td>
+				       <td>price</td>
+				       <td>number</td>
+				     </tr>
+	    				<? foreach ($row as $svi) : ?>
+	    			 		 <tr>
+						       <td><? echo $svi[0]; ?></td>
+						       <td><? echo $svi[1]; ?></td>
+						       <td><? echo $svi[2]; ?></td>
+						     </tr>
+				     <? endforeach; ?>
+				   </table>
 	    	</div>
     </div>
 </div>
