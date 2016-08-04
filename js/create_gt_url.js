@@ -9,14 +9,12 @@ function URL_GT(keyword, country, region, year, month, length){
   var geo = "";
   var date = "";
   var URL = "";
-  var month=1;
-  var length=3;
 
   
   //Geographic restrictions
   if(typeof country!=="undefined" && country !== 'NA') {
-    geo="&geo=";
-    geo=geo + country;
+    geo = "&geo=";
+    geo = geo + country;
     if(region !== undefined && region !=='NA') geo=geo + "-" + region;
   }
   
@@ -32,7 +30,7 @@ function URL_GT(keyword, country, region, year, month, length){
   }
   
   //Dates
-  if(typeof year==="string" && year !== 'NA'){
+  if(typeof year==="number" && year !== 'NA'){
     date="&date=";
     date=date + month + "%2F" + year + "%20" + length + "m";
   }
@@ -102,4 +100,25 @@ function create_order(data){
               console.log(result);
            }
       });
+}
+
+function daily_gt(keyword){
+  var months = [1,4,7,9];
+  var years = [2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016];
+  for(var year in years){
+    for(var month in months){
+      var url = URL_GT(keyword, 'NA', 'NA', years[year], months[month], 3);
+      console.log(url);
+      var node = '<a href="' + url + '">' + months[month] + '-' + years[year]  + '</a><br>';
+      $("#sviLinks").append(node);
+      
+    }
+  }
+  var url = URL_GT(keyword);
+  console.log(url);
+}
+
+function getUserKeyword(){
+  var keyword = document.getElementById('inputKeyword').value;
+  daily_gt(keyword);
 }

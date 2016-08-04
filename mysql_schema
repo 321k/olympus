@@ -1,0 +1,71 @@
+create table users(
+id
+,email
+,password
+,date_created
+);
+
+create table orders(
+id int NOT NULL AUTO_INCREMENT
+,user_id int
+,date_created timestamp NOT NULL DEFAULT current_timestamp
+,year int
+,month int
+,length int
+,country varchar(255)
+,region varchar(255)
+,refresh_frequency varchar(255)
+,data_frequency varchar(255)
+,comparable_keywords boolean
+,PRIMARY KEY (id)
+);
+
+create table keywords(
+id int NOT NULL AUTO_INCREMENT
+,order_id int
+,keyword varchar(255)
+,date_created timestamp NOT NULL DEFAULT current_timestamp
+,PRIMARY KEY (id)
+);
+
+create table order_url_link(
+url_id int
+,order_id int
+,date_created timestamp NOT NULL DEFAULT current_timestamp
+,PRIMARY KEY (url_id)
+);
+
+create table urls(
+id int NOT NULL AUTO_INCREMENT
+,url varchar(255)
+,date_created timestamp NOT NULL DEFAULT current_timestamp
+,PRIMARY KEY (id)
+);
+
+create table google_trends_file(
+id int NOT NULL AUTO_INCREMENT
+,url_id
+,file_path
+,date_created timestamp NOT NULL DEFAULT current_timestamp
+)
+
+create table raw_svi_data(
+id int NOT NULL AUTO_INCREMENT
+,google_trends_file_id int
+,keyword varchar(255)
+,svi varchar(255)
+,date date
+,date_created timestamp NOT NULL DEFAULT current_timestamp
+,PRIMARY KEY (id)
+);
+
+create table formatted_svi_data(
+id int NOT NULL AUTO_INCREMENT
+,raw_svi_data int
+,order_id int
+,keyword varchar(255)
+,svi varchar(255)
+,date date
+,date_created timestamp NOT NULL DEFAULT current_timestamp
+,PRIMARY KEY (id)
+);

@@ -40,7 +40,14 @@ $userid = $userRow['id'];
 		     </div>
 		     <div id="file-parser">
 		     	<div id="file-content"></div>
-		     	<h1>Upload file to create your Google Trends tracking</h1>
+		     	<h1>Get daily Google Trends data</h1>
+		     	<h2>1. Select your keyword</h2>
+		     	Enter keyword: <input type="text" id="inputKeyword"/>
+		     	<button onclick="getUserKeyword();">Go!</button>
+		     	<h2>2. Click the links to download the files</h2>
+		     	<button>Download all</button>
+		     	<div id='sviLinks'></div>
+		     	<h2>3. Upload the files</h2>
 		        <script>
 		          var data;
 		         
@@ -62,30 +69,8 @@ $userid = $userRow['id'];
 		        </script>
 		        <input type="file" id="csv-file" name="files"/>
 		        <input type="button" id="create-gt-batch" name="files" onclick="create_links(data);" value = 'submit'/>
-		        <input type="button" id="get-gt-data" name="files" value="update data"/>
 	    	</div>
 	    	<div id="ajax-return">
-	    	</div>
-	    	<div>
-	    		<form action="">
-		    		<h1>Define parameters</h1>
-		    		Start year<input type="" id="year" value="2004"/><br>
-		    		Start Month<input type="" id ="month" value="1"/><br>
-		    		Length<input type="" id="length" value="0"/><br>
-		    		Country <input type="" id="country" value="World"/><br>
-		    		Region <input type="" id="region" value="World"/><br>
-		    		<input type="checkbox" id="comparable_keywords"/> Make my data comparable <br>
-		    		Refresh frequency<br>
-		    		<input type="radio" id="refresh_frequency" name="refresh_frequency" value="Daily"/> Daily <br>
-		    		<input type="radio" id="refresh_frequency" name="refresh_frequency" value="Weekly"/> Weekly<br>
-		    		<input type="radio" id="refresh_frequency" name="refresh_frequency" value="Monthly"/> Monthly<br>
-		    		Data frequency<br>
-		    	
-		    		<input type="radio" id="data_frequency" name="data_frequency"  value="Daily"/> Daily <br>
-		    		<input type="radio" id="data_frequency" name="data_frequency"  value="Weekly"/> Weekly<br>
-		    		<input type="radio" id="data_frequency" name="data_frequency" value="Monthly"/> Monthly<br>
-		    		<input type="button" id="create-gt-batch-v2" id="files-v2" onclick="create_order();" value = 'submit'/>
-	    		</form>
 	    	</div>
     	</div>
 	</div>

@@ -18,14 +18,10 @@ $data_frequency = $_POST["data_frequency"];
 $comparable_keywords = $_POST["comparable_keywords"];
 $user_id = $_SESSION['user'];
 
-$query = sprintf("INSERT INTO orders (user_id, year, month, length, country, region, refresh_frequency, data_frequency, comparable_keywords) values ($user_id,$year,$month,$length,'$country','$region','$refresh_frequency','$data_frequency','$comparable_keywords');");
-echo $query;
+$query = sprintf("INSERT INTO orders (user_id, year, month, length, country, region, refresh_frequency, data_frequency, comparable_keywords) VALUES ($user_id,$year,$month,$length,'$country','$region','$refresh_frequency','$data_frequency','$comparable_keywords')");
 
-$res=mysql_query($query);
-
-echo $res;
 if($res){
-    echo $res;
+    echo $res['Tables_in_apollo'];
 }
 else{
     echo "Error";
